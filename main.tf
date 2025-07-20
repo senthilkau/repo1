@@ -1,4 +1,3 @@
-/*
 resource "azurerm_resource_group" "example" {
   name     = "tf-sample-rg"
   location = "australiaeast"
@@ -18,8 +17,9 @@ resource "azurerm_subnet" "example" {
   address_prefixes     = ["10.0.1.0/24"]
 }
 
-resource "azurerm_network_interface" "example" {
-  name                = "tf-sample-nic"
+resource "azurerm_network_interface" "vmnic" {
+  count               = 2
+  name                = "tf-sample-nic-${count.index + 1}"
   location            = azurerm_resource_group.example.location
   resource_group_name = azurerm_resource_group.example.name
 
@@ -27,26 +27,25 @@ resource "azurerm_network_interface" "example" {
     name                          = "internal"
     subnet_id                     = azurerm_subnet.example.id
     private_ip_address_allocation = "Dynamic"
-    // No public_ip_address_id specified
   }
 }
 
-resource "azurerm_linux_virtual_machine" "example" {
-  name                = "tf-sample-vm"
+resource "azurerm_linux_virtual_machine" "vm" {
+  count               = 2
+  name                = "tf-sample-vm-${count.index + 1}"
   resource_group_name = azurerm_resource_group.example.name
   location            = azurerm_resource_group.example.location
   size                = "Standard_B1s"
   admin_username      = "azureuser"
   network_interface_ids = [
-    azurerm_network_interface.example.id,
+    azurerm_network_interface.vmnic[count.index].id,
   ]
-
   admin_password = "P@ssword1234!" // For demo only; use SSH keys in production
 
   os_disk {
     caching              = "ReadWrite"
     storage_account_type = "Standard_LRS"
-    name                 = "tf-sample-osdisk"
+    name                 = "tf-sample-osdisk-${count.index + 1}"
   }
 
   source_image_reference {
@@ -57,7 +56,5 @@ resource "azurerm_linux_virtual_machine" "example" {
   }
 
   disable_password_authentication = false
+  zone = tostring(count.index + 1) // "1" for az1, "2" for az2
 }
-
-// No public IP resource is created or
-*/
