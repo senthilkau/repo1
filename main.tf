@@ -1,3 +1,4 @@
+/*
 resource "azurerm_resource_group" "example" {
   name     = "tf-sample-rg"
   location = "australiaeast"
@@ -59,3 +60,4 @@ resource "azurerm_linux_virtual_machine" "example" {
 }
 
 // No public IP resource is created or
+*/
