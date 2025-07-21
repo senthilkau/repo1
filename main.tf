@@ -1,4 +1,4 @@
-/*
+
 resource "azurerm_resource_group" "example" {
   name     = "tf-sample-rg"
   location = "australiaeast"
@@ -59,4 +59,3 @@ resource "azurerm_linux_virtual_machine" "vm" {
   disable_password_authentication = false
   zone = tostring(count.index + 1) // "1" for az1, "2" for az2
 }
-*/
