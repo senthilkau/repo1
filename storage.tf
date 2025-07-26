@@ -1,7 +1,3 @@
-provider "azurerm" {
-      features {}
-      # Include any other original configuration details like subscription_id, client_id, etc.
-    }
 /*
 # 1. Create a resource group for the storage account
 resource "azurerm_resource_group" "rg" {
