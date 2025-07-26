@@ -15,7 +15,6 @@ resource "random_string" "suffix" {
 module "storage" {
   source  = "app.terraform.io/senthilkau/storage-account/azurerm"
   version = "~> 0.1.6"
-  name                     = azurerm_storage_account.sa.name
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
