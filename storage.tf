@@ -1,7 +1,3 @@
-provider "azurerm" {
-  features {}
-}
-
 # 1. Create a resource group for the storage account
 resource "azurerm_resource_group" "rg" {
   name     = "rg-demo"
@@ -14,7 +10,7 @@ resource "random_string" "suffix" {
   upper   = false
   special = false
 }
-/*
+
 # 3. Instantiate your private module
 module "storage" {
   source  = "app.terraform.io/senthilkau/storage-account/azurerm"
@@ -34,4 +30,3 @@ output "storage_account_id" {
 output "primary_blob_endpoint" {
   value = module.storage.primary_blob_endpoint
 }
-*/
