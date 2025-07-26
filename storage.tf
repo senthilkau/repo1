@@ -1,3 +1,6 @@
+provider "azurerm" {
+  features {}
+}
 
 # 1. Create a resource group for the storage account
 resource "azurerm_resource_group" "rg" {
