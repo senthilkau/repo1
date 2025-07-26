@@ -4,7 +4,14 @@ resource "azurerm_resource_group" "rg" {
   location = "australiaeast"
 }
 
-# 2. Instantiate your private module
+# 2. Generate a random suffix to ensure unique storage account name
+resource "random_string" "suffix" {
+  length  = 6
+  upper   = false
+  special = false
+}
+
+# 3. Instantiate your private module
 module "storage" {
   source  = "app.terraform.io/senthilkau/storage-account/azurerm"
   version = "~> 0.1.6"
@@ -13,10 +20,10 @@ module "storage" {
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  prefix                   = "sen" # <-- Add a unique prefix here
+  prefix                   = "sen${random_string.suffix.result}" # <-- Use a random suffix
 }
 
-# 3. Optional: expose outputs
+# 4. Optional: expose outputs
 output "storage_account_id" {
   value = module.storage.storage_account_id
 }
