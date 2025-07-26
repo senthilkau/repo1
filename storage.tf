@@ -7,7 +7,7 @@ resource "azurerm_resource_group" "rg" {
 # 2. Instantiate your private module
 module "storage" {
   source  = "app.terraform.io/senthilkau/storage-account/azurerm"
-  version = "0.1.3"
+  version = "0.1.4"
 
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
