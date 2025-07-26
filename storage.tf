@@ -1,18 +1,3 @@
-terraform {
-  required_version = ">= 1.1.0"
-
-  required_providers {
-    azurerm = {
-      source  = "hashicorp/azurerm"
-      version = ">= 3.0.0"
-    }
-  }
-}
-
-provider "azurerm" {
-  features {}
-}
-
 # 1. Create a resource group for the storage account
 resource "azurerm_resource_group" "rg" {
   name     = "rg-demo"
