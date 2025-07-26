@@ -15,12 +15,12 @@ resource "random_string" "suffix" {
 module "storage" {
   source  = "app.terraform.io/senthilkau/storage-account/azurerm"
   version = "~> 0.1.6"
-
+  name                     = azurerm_storage_account.sa.name
   resource_group_name      = azurerm_resource_group.rg.name
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  #prefix                   = "{random_string.suffix.result}" # <-- Use a random suffix
+  prefix                   = "{random_string.suffix.result}" # <-- Use a random suffix
 }
 
 # 4. Optional: expose outputs
