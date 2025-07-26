@@ -20,7 +20,7 @@ module "storage" {
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
-  prefix                   = "sen${random_string.suffix.result}" # <-- Use a random suffix
+  prefix                   = "{random_string.suffix.result}" # <-- Use a random suffix
 }
 
 # 4. Optional: expose outputs
