@@ -13,6 +13,7 @@ module "storage" {
   location                 = azurerm_resource_group.rg.location
   account_tier             = "Standard"
   account_replication_type = "LRS"
+  prefix                   = "sen" # <-- Add a unique prefix here
 }
 
 # 3. Optional: expose outputs
