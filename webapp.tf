@@ -8,6 +8,7 @@ resource "azurerm_app_service_plan" "webapp_plan" {
   location            = azurerm_resource_group.webapp_rg.location
   resource_group_name = azurerm_resource_group.webapp_rg.name
   kind                = "Linux"
+  reserved = "true"  # Indicates a Linux App Service Plan
   sku {
     tier = "Basic"
     size = "B1"
