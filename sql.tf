@@ -33,8 +33,8 @@ resource "azurerm_mssql_managed_instance" "sql_mi" {
   subnet_id                    = azurerm_subnet.sql_mi_subnet.id
   administrator_login          = "sqladminuser"
   administrator_login_password = "P@ssw0rd1234!" # Use a secure method for secrets in production
-  sku_name                     = "GP_Gen5_2"
-  vcores = "1"
+  sku_name                     = "BC_Gen4"
+  vcores = "4"
   storage_size_in_gb           = 32
   license_type                 = "LicenseIncluded"
 }
