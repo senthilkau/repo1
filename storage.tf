@@ -12,7 +12,7 @@ resource "random_string" "suffix" {
   special = false
 }
 
-/*
+
 # 3. Instantiate your private module
 module "storage" {
   source  = "app.terraform.io/senthilkau/storage-account/azurerm"
@@ -33,4 +33,3 @@ output "storage_account_id" {
 output "primary_blob_endpoint" {
   value = module.storage.primary_blob_endpoint
 }
-*/
