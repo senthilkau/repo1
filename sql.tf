@@ -1,4 +1,4 @@
-
+/*
 resource "azurerm_resource_group" "sql_rg" {
   name     = "sql-mi-rg"
   location = "Australia East"
@@ -41,3 +41,4 @@ resource "azurerm_mssql_managed_instance" "sql_mi" {
 }
 
 # Note: For production, use secure secret management for
+*/
