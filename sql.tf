@@ -26,7 +26,7 @@ resource "azurerm_subnet" "sql_mi_subnet" {
   }
 }
 
-resource "azurerm_sql_managed_instance" "sql_mi" {
+resource "azurerm_mssql_managed_instance" "sql_mi" {
   name                         = "basic-sql-mi"
   resource_group_name          = azurerm_resource_group.sql_rg.name
   location                     = azurerm_resource_group.sql_rg.location
