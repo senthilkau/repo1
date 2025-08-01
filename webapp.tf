@@ -1,3 +1,4 @@
+
 resource "azurerm_resource_group" "webapp_rg" {
   name     = "webapp-rg"
   location = "Australia East"
@@ -29,3 +30,6 @@ resource "azurerm_linux_web_app" "webapp" {
 }
 
 # No public IP is exposed by default for Azure Web Apps
+output "webapp_url" {
+  value = azurerm_linux_web_app.webapp.default_site_hostname
+}
