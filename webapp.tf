@@ -21,7 +21,6 @@ resource "azurerm_linux_web_app" "webapp" {
   service_plan_id     = azurerm_app_service_plan.webapp_plan.id
 
   site_config {
-    scm_type = "LocalGit"
     always_on = true
   }
 
