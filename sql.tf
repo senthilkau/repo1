@@ -34,6 +34,7 @@ resource "azurerm_mssql_managed_instance" "sql_mi" {
   administrator_login          = "sqladminuser"
   administrator_login_password = "P@ssw0rd1234!" # Use a secure method for secrets in production
   sku_name                     = "GP_Gen5_2"
+  vcores = "1"
   storage_size_in_gb           = 32
   license_type                 = "LicenseIncluded"
 }
